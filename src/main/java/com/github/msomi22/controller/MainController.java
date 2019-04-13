@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.msomi22.bean.Item;
+import com.github.msomi22.exception.ItemException;
 
 /**
  * @author t_pnjeru
@@ -28,8 +29,10 @@ public class MainController {
 		return "POST Request item is " + item; 
 	}
 	
-	@RequestMapping(value="/items/{id}", method=RequestMethod.PUT) 
-	public Object putItem(@PathVariable("id") String id,@RequestBody Item item) { 
+	@RequestMapping(value="/items/put/{id}", method=RequestMethod.PUT) 
+	public Object putItem(@PathVariable("id") String id,@RequestBody Item item) {
+		if(id.isEmpty())
+			throw new ItemException();
 		return "PUT Request item is, id " + id + " " + item;  
 	}
 	
