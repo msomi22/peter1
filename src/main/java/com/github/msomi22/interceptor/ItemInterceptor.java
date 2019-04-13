@@ -23,9 +23,9 @@ public class ItemInterceptor implements HandlerInterceptor{
 		 
 		 System.out.println("Pre Handle method is Calling");
 		 
-		  if(request.getAttribute("username").toString().isEmpty()) {
+		  /*if(request.getAttribute("username").toString().isEmpty()) {
 			  return false;
-		  }
+		  }*/
 	      return true;
 	   }
 	   @Override
