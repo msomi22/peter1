@@ -34,7 +34,7 @@ public class Client {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity <String> entity = new HttpEntity<String>(headers);
-		return restTemplate.exchange("localhost:8080/items", HttpMethod.GET, entity, String.class).getBody();
+		return restTemplate.exchange("http://localhost:8080/items", HttpMethod.GET, entity, String.class).getBody();
 	}
 
 	@RequestMapping(value="/template/items",method = RequestMethod.POST)
@@ -42,7 +42,7 @@ public class Client {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity <Item> entity = new HttpEntity<Item>(item,headers); 
-		return restTemplate.exchange("localhost:8080/items", HttpMethod.POST, entity, String.class).getBody();
+		return restTemplate.exchange("http://localhost:8080/items", HttpMethod.POST, entity, String.class).getBody();
 	}
 
 
@@ -51,7 +51,7 @@ public class Client {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity<Item> entity = new HttpEntity<Item>(item,headers);
-		return restTemplate.exchange("localhost:8080/items/put/"+id, HttpMethod.PUT, entity, String.class).getBody();
+		return restTemplate.exchange("http://localhost:8080/items/put/"+id, HttpMethod.PUT, entity, String.class).getBody();
 	}
 
 
