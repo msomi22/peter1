@@ -58,6 +58,7 @@ public class Client {
 	@RequestMapping(value="/template/swapi")
 	public Object swapiCo() {
 		HttpHeaders headers = new HttpHeaders();
+		headers.set(HttpHeaders.USER_AGENT, "Mozilla/5.0 Firefox/26.0"); 
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity <String> entity = new HttpEntity<String>(headers);
 		return restTemplate.exchange("https://swapi.co/api/people/1/", HttpMethod.GET, entity, String.class).getBody();
