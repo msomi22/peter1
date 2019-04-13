@@ -27,8 +27,15 @@ public class ItemFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		
 		System.out.println("Remote Host:"+request.getRemoteHost());
 		System.out.println("Remote Address:"+request.getRemoteAddr());
+		System.out.println("Remote Port:"+ request.getRemotePort());
+		System.out.println("--------------------------------------");
+		System.out.println("Local Host:"+request.getLocalName());
+		System.out.println("Local Address:"+request.getLocalAddr());
+		System.out.println("Local Port:"+ request.getLocalPort());
+		
 		chain.doFilter(request, response);
 	}
 
